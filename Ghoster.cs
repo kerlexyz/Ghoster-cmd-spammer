@@ -44,7 +44,7 @@ class Program
         switch (Console.ReadLine())
         {
             case "1":
-                StartPrank();
+                CmdSpam();
                 return true;
             case "2":
                 OpenLink("https://discord.gg/98fADjcFVv");
@@ -64,23 +64,20 @@ class Program
         }
     }
 
-    static void StartPrank()
+    static void CmdSpam()
     {
-        Console.WriteLine("Prank started! Press any key to stop.");
+        Console.WriteLine("Lmao");
 
-        // Open multiple cmd windows with "Prank!" message
-        for (int i = 0; i < 10; i++) // Change 5 to however many windows you want to open
+        for (int i = 0; i < 10; i++)
         {
-            // Start a new command prompt and run a command to display "Prank!"
             ProcessStartInfo psi = new ProcessStartInfo("cmd.exe", "/c mode con: cols=18 lines=6 & COLOR fd & echo LMAO LMAO LMAO LMAO LMAO & pause")
             {
-                UseShellExecute = true, // Must be true to open a new window
-                CreateNoWindow = false   // Set to false to see the window
+                UseShellExecute = true,
+                CreateNoWindow = false
             };
             Process.Start(psi);
 
-            // Wait a moment before opening the next window
-            System.Threading.Thread.Sleep(0); // Adjust the delay (milliseconds) as needed
+            System.Threading.Thread.Sleep(0);
         }
 
         Console.Clear();
@@ -95,7 +92,7 @@ class Program
             Process.Start(new ProcessStartInfo
             {
                 FileName = url,
-                UseShellExecute = true // This is important to open the URL in the default browser
+                UseShellExecute = true
             });
         }
         catch (Exception ex)
